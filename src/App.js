@@ -1,26 +1,20 @@
-import {Component, useState} from 'react';
+import {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
-  constructor(){
-    super();
-    this.state={
-      data:1
-    }
+function App() {
+  const [data,setdata]=useState("deepak");
+  function update(){
+    setdata("ritik");
+    
   }
-  update(){
-    this.setState({
-      data:this.state.data+1
-    })
-  }
-  render(){
-    return (
-      <div className="App">
-        <h1>hi {this.state.data}</h1>
-        <button onClick={()=>this.update()}>click me</button>
-      </div>
-    );
-  }
+  console.warn("helloo----");
+  return (
+    <div className="App">
+      <h1>hello it's {data}</h1>
+      <button onClick={update}>click me</button>
+    </div>
+  );
 }
+
 export default App;
