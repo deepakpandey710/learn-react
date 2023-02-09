@@ -5,24 +5,16 @@ import Student from './Student';
 
 
 function App(){
-  const [data,setDate]=useState(null);
-  const [print,setPrint]=useState(false);
-  function getData(val){
-    console.log(val.target.value);
-    setDate(val.target.value);
-    setPrint(false)
-  }
+  const [status,setStatus]=useState(true);
+  
   return(
     <div className="App">
       {
-        print?
-        <h1>{data}</h1>
-        :null
+        status?<h1>Hello World!</h1>:null
       }
-      
-      <input type="text" onChange={getData}></input>
-      <button onClick={()=>setPrint(true)}>print data</button>
-      
+      {/* <button onClick={()=>setStatus(true)}>Show</button>
+      <button onClick={()=>setStatus(false)}>hide</button> */}
+      <button onClick={()=>setStatus(!status)}>Toggle</button>
     </div>
   )
 }
