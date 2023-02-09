@@ -3,33 +3,29 @@ import logo from './logo.svg';
 import './App.css';
 import Student from './Student';
 
-class App extends Component{
-  constructor(){
-    super();
-    this.state={
-      data:"neeraj"
-    }
+
+function App(){
+  const [data,setDate]=useState(null);
+  const [print,setPrint]=useState(false);
+  function getData(val){
+    console.log(val.target.value);
+    setDate(val.target.value);
+    setPrint(false)
   }
-  render(){
-    return(
-      <div className="App">
-        <Student name={this.state.data}/>
-        <button onClick={()=>{this.setState({data:"deepak"})}}>update</button>
-      </div>
-    )
-  }
+  return(
+    <div className="App">
+      {
+        print?
+        <h1>{data}</h1>
+        :null
+      }
+      
+      <input type="text" onChange={getData}></input>
+      <button onClick={()=>setPrint(true)}>print data</button>
+      
+    </div>
+  )
 }
-
-
-// function App(){
-//   const [name,setName]=useState("deepak");
-//   return(
-//     <div className="App">
-//       <Student name={name} email="abc@test.com" others={{address:"delhi", pin:231}}/>
-//       <button onClick={()=>{setName("pandey")}}>update name</button>
-//     </div>
-//   )
-// }
 
 
 
