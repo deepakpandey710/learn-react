@@ -3,15 +3,33 @@ import logo from './logo.svg';
 import './App.css';
 import Student from './Student';
 
-function App(){
-  const [name,setName]=useState("deepak");
-  return(
-    <div className="App">
-      <Student name={name} email="abc@test.com" others={{address:"delhi", pin:231}}/>
-      <button onClick={()=>{setName("pandey")}}>update name</button>
-    </div>
-  )
+class App extends Component{
+  constructor(){
+    super();
+    this.state={
+      data:"neeraj"
+    }
+  }
+  render(){
+    return(
+      <div className="App">
+        <Student name={this.state.data}/>
+        <button onClick={()=>{this.setState({data:"deepak"})}}>update</button>
+      </div>
+    )
+  }
 }
+
+
+// function App(){
+//   const [name,setName]=useState("deepak");
+//   return(
+//     <div className="App">
+//       <Student name={name} email="abc@test.com" others={{address:"delhi", pin:231}}/>
+//       <button onClick={()=>{setName("pandey")}}>update name</button>
+//     </div>
+//   )
+// }
 
 
 
