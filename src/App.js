@@ -1,14 +1,26 @@
 import {Component, useState} from 'react';
 import './App.css';
 import User from './User';
-function App(){
-  const [name,setName]=useState("deepak");
-  return(
-    <div className="App">
-      <User name={name}/>
-      {/* <button onClick={()=>setName("pandey")}>update name</button> */}
-    </div>
-  )
+class App extends Component{
+  constructor(){
+    super();
+    this.state={
+      name:"deepak"
+    }
+  }
+  componentDidMount(){
+    console.warn('componentDidMount');
+  }
+  render()
+  {
+    console.warn('render');
+    return(
+      <div>
+        <h1>Component Did mount {this.state.name}</h1>
+        <button onClick={()=>this.setState({name:"pandey"})}>update</button>
+      </div>
+    )
+  }
 }
 
 
