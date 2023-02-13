@@ -19,10 +19,6 @@ function Profile(){
 
 
 
-
-
-
-
     // if(login){
     //     return(
     //         <div>
